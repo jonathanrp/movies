@@ -24,7 +24,14 @@ const Card = ({ title, poster, overview, releaseDate, voteAverage }) => {
             }}
           ></div>
           <div className="CardActiveContent">
-            <div className="CardActiveContentImage" style={{ backgroundImage: `url(${poster})` }}></div>
+            <div className="CardActiveContentImage" style={{ backgroundImage: `url(${poster})` }}>
+              <div className="CardClose"
+                onClick={() => {
+                  toggleDetails(!isShowingDetails);
+                }}>
+                X
+              </div>
+            </div>
             <div className="CardActiveContentText">
               <h1>{title}</h1>
               <p>{overview}</p>
@@ -93,6 +100,7 @@ styles.CardActive = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     .CardActiveContentImage {
+      position: relative;
       width: 100%;
       flex: 1;
       background-size: cover;
@@ -107,6 +115,20 @@ styles.CardActive = styled.div`
         color: white;
       }
     }
+  }
+  .CardClose {
+    background: ${colors.brand};
+    color: white;
+    border-radius: ${values.borderRadius};
+    width: 40px;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
