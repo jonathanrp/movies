@@ -7,6 +7,12 @@ const List = ({ items }) => {
   return (
     <styles.List>
       {items && items.map((item, index) => {
+          let poster;
+          if (item.poster_path) {
+            poster = config.image_path + item.poster_path;
+          } else {
+            poster = 'https://gearr.scannain.com/wp-content/uploads/2015/02/noposter.jpg';
+          }
           return (
             <Card
               key={item.id}
@@ -14,7 +20,7 @@ const List = ({ items }) => {
               overview={item.overview}
               releaseDate={item.release_date}
               voteAverage={item.vote_average}
-              poster={`${config.image_path}${item.poster_path}`}
+              poster={poster}
             />
           );
         })}

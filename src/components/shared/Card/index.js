@@ -11,7 +11,9 @@ const Card = ({ title, poster, overview, releaseDate, voteAverage }) => {
           toggleDetails(!isShowingDetails);
         }}
       >
-        <img src={poster} alt={title} />
+        <div className="Poster">
+          <img src={poster} alt={title} />
+        </div>
         <p>{title}</p>
       </styles.Card>
       {isShowingDetails && (
@@ -51,12 +53,19 @@ styles.Card = styled.div`
       box-shadow: 0px 0px 40px 5px #000;
     }
   }
-  img {
+  .Poster {
+    width: 165px;
+    height: 250px;
+    background: ${colors.brandDarker};
     border-radius: ${values.borderRadius};
-    box-shadow: 0px 0px 10px 5px #121218;
-    transition: all 0.7s ease;
-    width: 100%;
+    img {
+      border-radius: ${values.borderRadius};
+      box-shadow: 0px 0px 10px 5px #121218;
+      transition: all 0.7s ease;
+      width: 100%;
+    }
   }
+  
 `;
 
 styles.CardActive = styled.div`
