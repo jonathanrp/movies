@@ -34,6 +34,7 @@ styles.Search = styled.div`
     outline: none;
   }
   input[type="submit"] {
+    -webkit-appearance: none;
     background: ${colors.brand};
     border: none;
     padding: 20px 30px;
